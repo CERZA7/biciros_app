@@ -56,7 +56,7 @@ export default function LoginScreen() {
       style={styles.container}
     >
       <View style={styles.content}>
-        <Text style={styles.title}>Bicis App</Text>
+        <Text style={styles.title}>BICIROS</Text>
         <Text style={styles.subtitle}>Taller y Tienda</Text>
 
         <View style={styles.inputContainer}>
