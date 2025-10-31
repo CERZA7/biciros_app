@@ -1,6 +1,9 @@
 import { initializeApp, FirebaseApp } from 'firebase/app';
-import { getAuth, Auth } from 'firebase/auth';
 import { getFirestore, Firestore } from 'firebase/firestore';
+// @ts-ignore - Ignorar error de TypeScript temporalmente
+import { initializeAuth, getReactNativePersistence, Auth } from 'firebase/auth';
+// @ts-ignore
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
   apiKey: process.env.EXPO_PUBLIC_API_KEY,
@@ -13,5 +16,9 @@ const firebaseConfig = {
 };
 
 const app: FirebaseApp = initializeApp(firebaseConfig);
-export const auth: Auth = getAuth(app);
+
+export const auth: Auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage)
+});
+
 export const db: Firestore = getFirestore(app);
