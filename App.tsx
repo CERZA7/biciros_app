@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, ActivityIndicator, View } from 'react-native';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import LoginScreen from './login/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -19,10 +20,10 @@ function AppContent() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Bienvenido a la app</Text>
+    <>
+      <HomeScreen />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
 
